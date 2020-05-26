@@ -1,0 +1,30 @@
+<div class="container">
+    <form class="form-group form-inline-lg m-4 p-4">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-group form-control" id="searchbox" placeholder="search user by email">
+            </div>
+            <div class="col-md-2">
+                <button (click)='getUserInfo()' class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+    <ng-template [ngIf]="!userFound">
+        <div>
+            <h2>No record exist!</h2>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="!isEmpty">
+        <div>
+            <h2>{{ user['body']['name'] }}</h2>
+            <ul>
+                <li>E-mail - {{ user['body']['email'] }}</li>
+                <li>Address - {{ user['body']['address'] }}</li>
+                <li>Mobile - {{ user['body']['mobile'] }}</li>
+                <li>DOB - {{ user['body']['dob'] }}</li>
+            </ul>
+        </div>
+    </ng-template>
+</div>
